@@ -53,12 +53,21 @@ export default class DirectlineBotExtensionApplicationCustomizer
         // Wait for the placeholders to be created (or handle them being changed) and then
         // render.
         this.context.placeholderProvider.changedEvent.add(this, this._renderPlaceHolders);
-        var imageUrl = "./assets/SnowChatClose.png";
-        jQuery(".chat-opener").css("background-image", "url(" + imageUrl + ")");
+        //var imageUrl = "./assets/SnowChatClose.png";
+        //jQuery(".chat-opener").css("background-image", "url(" + imageUrl + ")");
         return this._userLoaded;
     }
 
     public _openChat(): void {
+        var x = document.getElementById("chatWindow");
+        if (x.style.display === "none") {
+        $(".chat-opener").css("background-image", "url('https://localhost:4321/dist/snowchatclose_9f69a649f7ebdb8f2fdf8e858b17fdc7.png')");
+          x.style.display = "block";
+        } else {
+        $(".chat-opener").css("background-image", "url('https://localhost:4321/dist/snowchaticon_90c514906fadf019d4c2bd9a173e397b.png')");
+          x.style.display = "none";
+        }
+        
         //When called as a click event, 'this' is the HTML element, not my class.  Grab the reference to my class stored in the <div id="bot"> element.
         let _that: DirectlineBotExtensionApplicationCustomizer = jQuery("#bot").data("ref");
         
@@ -72,18 +81,18 @@ export default class DirectlineBotExtensionApplicationCustomizer
             window.location.href = "https://smiledirectclubdev.service-now.com"//https://<your-instance>service-now.com/sn_va_web_client_login.do?sysparm_redirect_uri=<your-page>";
         });
  
-        jQuery("#chatOpener").fadeIn("fast", () => {
-            jQuery("#chatWindow").fadeIn("fast", () => {
-            });
-        });
+       // jQuery("#chatOpener").fadeIn("fast", () => {
+         //   jQuery("#chatWindow").fadeIn("fast", () => {
+          //  });
+        //});
         
     }
 
     public _closeChat(): void {
         
-        jQuery("#chatWindow").fadeOut("fast", () => {
-            jQuery("#chatOpener").fadeIn("fast");
-        });
+        //jQuery("#chatWindow").fadeOut("fast", () => {
+        //    jQuery("#chatOpener").fadeIn("fast");
+       // });
     }
 
     private getUpnForCurrentUser(): Promise<string> {
