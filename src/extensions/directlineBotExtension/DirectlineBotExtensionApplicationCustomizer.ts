@@ -16,6 +16,7 @@ import * as ReactDOM from "react-dom";
 import ReactFooter, { IReactFooterProps } from "./ReactFooter";
 
 import * as jQuery from 'jquery';
+import styles from './DirectlineBotExtensionApplicationCustomizer.module.scss';
 
 const LOG_SOURCE: string = 'HelloWorldApplicationCustomizer';
 
@@ -52,21 +53,34 @@ export default class DirectlineBotExtensionApplicationCustomizer
         // Wait for the placeholders to be created (or handle them being changed) and then
         // render.
         this.context.placeholderProvider.changedEvent.add(this, this._renderPlaceHolders);
-
+        var imageUrl = "./assets/SnowChatClose.png";
+        jQuery(".chat-opener").css("background-image", "url(" + imageUrl + ")");
         return this._userLoaded;
     }
 
     public _openChat(): void {
         //When called as a click event, 'this' is the HTML element, not my class.  Grab the reference to my class stored in the <div id="bot"> element.
         let _that: DirectlineBotExtensionApplicationCustomizer = jQuery("#bot").data("ref");
-
-        jQuery("#chatOpener").fadeOut("fast", () => {
+        
+        window.addEventListener("message", function(e) {
+        // redirect to SSO login if the web client logs in but is logged in as a guest user(unauthenticated)
+        if(e.data.type==="SESSION_CREATED" && e.data.authenticated === false)
+        window.location.href="https://smiledirectclubdev.service-now.com";//?sysparm_redirect_uri=<your-page>
+        
+        // redirect to SSO login if the ServiceNow platform logs out from underneath the web client
+        if(e.data.type==="SESSION_LOGGED_OUT")
+            window.location.href = "https://smiledirectclubdev.service-now.com"//https://<your-instance>service-now.com/sn_va_web_client_login.do?sysparm_redirect_uri=<your-page>";
+        });
+ 
+        jQuery("#chatOpener").fadeIn("fast", () => {
             jQuery("#chatWindow").fadeIn("fast", () => {
             });
         });
+        
     }
 
     public _closeChat(): void {
+        
         jQuery("#chatWindow").fadeOut("fast", () => {
             jQuery("#chatOpener").fadeIn("fast");
         });
@@ -117,15 +131,13 @@ export default class DirectlineBotExtensionApplicationCustomizer
                         <div>
                         <div id="chatOpener" class="ms-bgColor-themeDark chat-opener">
                             <a class="b" href="javascript:">
-                                <i class="${getIconClassName('CommentPrevious')}"></i>
-                                <span>${this.properties.BotName}</span>
+                                <i class="${styles.img}"></i>
+                                
                             </a>
                         </div>
                         <div id="chatWindow" class="chat-window" style="display:none;">
-                            <div class="ms-bgColor-themeDark heading">
-                                <a href="javascript:" id="chatCloser" title="Close chat window"><i class="${getIconClassName('Cancel')}"></i></a> ${this.properties.BotName}
-                            </div>
-                            <div id="bot"></div>
+                        <iframe width="300" height="400" title="ServiceNow Virtual Agent Client" id="sn_va_web_client" src="https://smiledirectclubdev.service-now.com/sn_va_web_client_app_embed.do">
+                        </iframe>
                         </div>
                         </div>
                         `;

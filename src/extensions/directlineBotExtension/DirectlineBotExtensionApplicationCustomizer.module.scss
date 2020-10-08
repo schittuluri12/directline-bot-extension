@@ -13,7 +13,12 @@
         color: $ms-color-white;
 
     }
-
+    .img {
+      background: url('./assets/SnowChatIcon.png');
+    }
+    .closeimage{
+      background: url('./assets/SnowChatClose.png');
+    }
     .bottom {
         height:40px;
         text-align:center;

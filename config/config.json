@@ -18,6 +18,7 @@
     }
   },
   "localizedResources": {
-    "DirectlineBotExtensionApplicationCustomizerStrings": "lib/extensions/directlineBotExtension/loc/{locale}.js"
+    "DirectlineBotExtensionApplicationCustomizerStrings": "lib/extensions/directlineBotExtension/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
   }
 }

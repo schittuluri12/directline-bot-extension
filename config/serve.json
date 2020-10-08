@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://smiledirectclub.sharepoint.com/sites/grinnernetuat",
       "customActions": {
         "15be81a7-b6b8-4a75-8de3-0da288492e77": {
           "location": "ClientSideExtension.ApplicationCustomizer",
@@ -15,7 +15,7 @@
       }
     },
     "directlineBotExtension": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://smiledirectclub.sharepoint.com/sites/grinnernetuat",
       "customActions": {
         "15be81a7-b6b8-4a75-8de3-0da288492e77": {
           "location": "ClientSideExtension.ApplicationCustomizer",

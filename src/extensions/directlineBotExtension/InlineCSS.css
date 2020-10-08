@@ -1,10 +1,10 @@
-.chat-opener {display: block; width: 92px; position: fixed; z-index: 9984; bottom: 50px;
-    right: 20px; padding: 5px; background-color: "[theme: themeDark, default: #005a9e]"}
-.heading {background-color: "[theme: themeDark, default: #005a9e]"}
-.chat-opener a { display: block; text-align: center; color: #fff; text-decoration:none;}
-.chat-opener a i {font-size: 48px;}
-.chat-opener a span {font-weight: bold; display: block; text-align: center; font-family: Segoe UI, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px;}
-.chat-window { width: 300px; padding: 0px; box-shadow: #000 0 0 15px; position: fixed; right: 20px; bottom: 50px; background-color: #fff; z-index:9999;}
+.chat-opener {height:77px; display:-webkit-inline-box; width: 79px; position: fixed; z-index: 9984; bottom: 50px;
+    right: 20px;border-radius: 50%;cursor: pointer; padding: 5px; background-color: "[theme: themeDark, default: #5700ff]";background-image: url('./assets/SnowChatIcon.png'); }
+.heading {background-color: "[theme: themeDark, default: #5700ff]"}
+.chat-opener a { display: block; text-align: center;border-radius: 50%; color: #fff; text-decoration:none;}
+.chat-opener a i {font-size: 1px;}
+/*.chat-opener a span {font-weight: bold; display: -webkit-inline-box; text-align: center; font-family: Segoe UI, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px;}*/
+.chat-window { width: 300px; padding: 0px; box-shadow: #000 0 0 15px; position: fixed; right: 20px; bottom: 150px; background-color: #fff; z-index:9999;}
 .chat-window .heading { position: relative; color: #fff; height: 30px; font-family: Segoe UI, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 22px; padding: 5px;}
 .chat-window .heading a {color: #fff; display: inline-block; padding: 0 5px;}
 .chat-window #bot {position: relative; height: 400px;}
